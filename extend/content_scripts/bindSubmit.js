@@ -13,7 +13,7 @@ let tempIntervalEditor;
  */
 function delaySend() {
 
-	setSendForbidden('true');
+	setSubmitForbidden('true');
 
 	$('.processBarWrap').removeClass('processBarWrapNormal').addClass('processBarWrapRun');
 
@@ -21,9 +21,9 @@ function delaySend() {
 
 		cancelSend();
 
-		setSendForbidden('false', function () {
+		setSubmitForbidden('false', function () {
 			$('a.j_submit')[0].click();
-			setSendForbidden('true');
+			setSubmitForbidden('true');
 		});
 
 	}, 1000 * delaySecond);
@@ -61,7 +61,7 @@ function delaySend() {
  */
 function cancelSend() {
 
-	setSendForbidden('true');
+	setSubmitForbidden('true');
 
 	$('.processBarWrap').removeClass('processBarWrapRun').addClass('processBarWrapNormal');
 	$('.processBarText').html('发 表');
@@ -80,9 +80,9 @@ function directSend() {
 
 	cancelSend();
 
-	setSendForbidden('false', function () {
+	setSubmitForbidden('false', function () {
 		$('a.j_submit')[0].click();
-		setSendForbidden.set('true');
+		setSubmitForbidden.set('true');
 	});
 
 }

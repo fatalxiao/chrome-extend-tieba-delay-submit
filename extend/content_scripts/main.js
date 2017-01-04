@@ -6,9 +6,6 @@ function validDelaySecond(value) {
 
 function replaceAll() {
 	replaceSubmit();
-	// replaceReply();
-	// replaceReplyReply();
-	// replaceReplySay();
 }
 
 function resetAll() {
@@ -28,19 +25,19 @@ function unbindAll() {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 	switch (request.type) {
-		case 'setDelaySend':
-			if (request.isDelaySend == 'true') {
-				setSendForbidden('true');
+		case 'setDelaySubmit':
+			if (request.isDelaySubmit == 'true') {
+				setSubmitForbidden('true');
 				bindAll();
 				replaceAll();
 			} else {
-				setSendForbidden('false');
+				setSubmitForbidden('false');
 				unbindAll();
 				resetAll();
 			}
 			return;
-		case 'setDelaySendSecond':
-			delaySecond = validDelaySecond(request.delaySendSecond);
+		case 'setDelaySubmitSecond':
+			delaySecond = validDelaySecond(request.delaySubmitSecond);
 			return;
 	}
 
@@ -51,20 +48,20 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 $(function () {
 
 	/**
-	 * 获取延迟秒数
+	 * get delay time
 	 */
 	chrome.runtime.sendMessage({
-		type: 'delaySendSecond'
-	}, response => delaySecond = validDelaySecond(response.delaySendSecond));
+		type: 'delaySubmitSecond'
+	}, response => delaySecond = validDelaySecond(response.delaySubmitSecond));
 
 	/**
-	 * 获取是否延迟发送
+	 * get is delay submit
 	 */
 	chrome.runtime.sendMessage({
-		type: 'isDelaySend'
+		type: 'isDelaySubmit'
 	}, response => {
-		if (response.isDelaySend == 'true') {
-			setSendForbidden('true');
+		if (response.isDelaySubmit == 'true') {
+			setSubmitForbidden('true');
 			bindAll();
 			replaceAll();
 		}

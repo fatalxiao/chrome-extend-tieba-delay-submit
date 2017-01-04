@@ -1,6 +1,3 @@
-/**
- * 打开选项页面
- */
 function openOptionPage() {
 	chrome.tabs.query({
 		currentWindow: true
@@ -11,11 +8,11 @@ function openOptionPage() {
 			return tab.url.includes(optionUrl);
 		});
 
-		if (optionTab.length > 0) { // 如果当前窗口中有已经打开的窗口，切换到此窗口
+		if (optionTab.length > 0) { // active tab if option page has been opened in this window
 			chrome.tabs.update(optionTab[0].id, {
 				selected: true
 			});
-		} else { // 不然打开新窗口
+		} else { // else open new tab of option page
 			chrome.tabs.create({
 				url: optionUrl,
 				selected: true
@@ -26,11 +23,11 @@ function openOptionPage() {
 }
 
 /**
- * 拦截发送的请求
+ * block submit request
  */
 chrome.webRequest.onBeforeRequest.addListener(details => {
 	if (
-		isDelaySend.get() == 'true'
+		isDelaySubmit.get() == 'true'
 		&& details.url == 'http://tieba.baidu.com/f/commit/post/add'
 		&& sendForbidden.get() != 'false'
 	) {
@@ -43,46 +40,36 @@ chrome.webRequest.onBeforeRequest.addListener(details => {
 }, ['blocking']);
 
 /**
- * onMessage 处理
+ * onMessage handler
  */
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 	switch (request.type) {
-		case 'setSendForbidden':
+		case 'setSubmitForbidden':
 			sendForbidden.set(request.value);
 			sendResponse({});
 			return;
-		case 'isDelaySend':
+		case 'isDelaySubmit':
 			sendResponse({
-				isDelaySend: isDelaySend.get()
+				isDelaySubmit: isDelaySubmit.get()
 			});
 			return;
-		case 'delaySendSecond':
+		case 'delaySubmitSecond':
 			sendResponse({
-				delaySendSecond: delaySendSecond.get()
+				delaySubmitSecond: delaySubmitSecond.get()
 			});
 			return;
 	}
 
 });
 
-// 第一次运行
+// first run
 if (isFirstRun.get() != "false") {
 
-	// 初始化
+	// init
 	isFirstRun.set("false");
-	isDelaySend.set("false");
-	delaySendSecond.set("5");
-	isAutoOpenUrl.set("false");
-	autoOpenUrl.set("");
+	isDelaySubmit.set("false");
+	delaySubmitSecond.set("5");
 	sendForbidden.set("false");
 
-	openOptionPage();
-
-}
-
-// 启动自动打开网页
-if (isAutoOpenUrl.get() == 'true') {
-	const urls = autoOpenUrl.get();
-	urls && urls.split(AUTO_OPEN_URL_SEPARATOR).forEach(url => chrome.tabs.create({url}));
 }

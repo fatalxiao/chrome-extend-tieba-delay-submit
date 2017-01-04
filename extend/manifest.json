@@ -1,7 +1,7 @@
 {
-	"name": "Chrome \u5de5\u5177",
-	"version": "1.1",
-	"description": "Chrome \u5de5\u5177",
+	"name": "Tieba Delay Submit",
+	"version": "1.0",
+	"description": "Tieba Delay Submit",
 	"icons": {
 		"128": "icons/icon128.png",
 		"16": "icons/icon16.png",
@@ -33,12 +33,10 @@
 				"common/common.js",
 				"common/myEvent.js",
 				"content_scripts/bindSubmit.js",
-				"content_scripts/bindReply.js",
 				"content_scripts/main.js"
 			],
 			"css": [
-				"content_scripts/bindSubmit.css",
-				"content_scripts/bindReply.css"
+				"content_scripts/bindSubmit.css"
 			],
 			"matches": [
 				"*://tieba.baidu.com/*"
@@ -57,7 +55,6 @@
 		"webNavigation"
 	],
 	"web_accessible_resources": [
-		"content_scripts/bindSubmit.css",
-		"content_scripts/bindReply.css"
+		"content_scripts/bindSubmit.css"
 	]
 }

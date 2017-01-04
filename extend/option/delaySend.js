@@ -1,11 +1,7 @@
 /**
- * 延迟发送
+ * Tieba Delay Submit
  */
 var DelaySend = {
-	show: function () {
-		$('#optionContentHeader').html('贴吧延迟发送');
-		Option.switchItem($('#optionListItemDelaySend'), $('#optionContentDelaySend'));
-	},
 	bindEvent: function () {
 
 		var BG = chrome.extension.getBackgroundPage();
@@ -13,27 +9,27 @@ var DelaySend = {
 		$('#switchDelaySend').click(function () {
 			if ($(this).hasClass('switchEnable')) {
 				switchBtn.disable($(this));
-				BG.isDelaySend.set('false');
+				BG.isDelaySubmit.set('false');
 			} else if ($(this).hasClass('switchDisable')) {
 				switchBtn.enable($(this));
-				BG.isDelaySend.set('true');
+				BG.isDelaySubmit.set('true');
 			}
 		});
 
 		$('.numberFieldBtnUp').click(function () {
 			numberField.add($(this).parent(), function (second) {
-				BG.delaySendSecond.set(second);
+				BG.delaySubmitSecond.set(second);
 			});
 		});
 
 		$('.numberFieldBtnDown').click(function () {
 			numberField.minus($(this).parent(), function (second) {
-				BG.delaySendSecond.set(second);
+				BG.delaySubmitSecond.set(second);
 			});
 		});
 
 		$('.numberFieldText').bind('input', function () {
-			BG.delaySendSecond.set($(this).val());
+			BG.delaySubmitSecond.set($(this).val());
 		});
 
 	},
@@ -41,15 +37,15 @@ var DelaySend = {
 
 		var BG = chrome.extension.getBackgroundPage();
 
-		if (BG.isDelaySend.get() == 'true') {
+		if (BG.isDelaySubmit.get() == 'true') {
 			switchBtn.enable($('#switchDelaySend'));
 		} else {
 			switchBtn.disable($('#switchDelaySend'));
 		}
 
-		var delaySendSecond = BG.delaySendSecond.get();
-		if (delaySendSecond && !isNaN(delaySendSecond)) {
-			$('#delaySendSecond .numberFieldText').val(delaySendSecond);
+		var delaySubmitSecond = BG.delaySubmitSecond.get();
+		if (delaySubmitSecond && !isNaN(delaySubmitSecond)) {
+			$('#delaySubmitSecond .numberFieldText').val(delaySubmitSecond);
 		}
 
 		this.bindEvent();

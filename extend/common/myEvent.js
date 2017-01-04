@@ -1,12 +1,12 @@
 var myEvent = {
-	
+
 	/**
-	 * 添加事件
-	 * @param {Object} obj 需要移除的对象
-	 * @param {Object} type 需要移除的事件类型
-	 * @param {Object} fun 回调函数
+	 * add event
+	 * @param {Object} obj target
+	 * @param {Object} type event type
+	 * @param {Object} fun callback
 	 */
-	addEvent : function (obj, type, fn) {
+	addEvent: function (obj, type, fn) {
 		if (obj.addEventListener)
 			obj.addEventListener(type, fn, false);
 		else if (obj.attachEvent) {
@@ -16,14 +16,14 @@ var myEvent = {
 			});
 		}
 	},
-	
+
 	/**
-	 * 移除事件
-	 * @param {Object} obj 需要移除的对象
-	 * @param {Object} type 需要移除的事件类型
-	 * @param {Object} fun 回调函数
+	 * remove event
+	 * @param {Object} obj target
+	 * @param {Object} type event type
+	 * @param {Object} fun callback
 	 */
-	removeEvent : function (obj, type, fun) {
+	removeEvent: function (obj, type, fun) {
 		if (obj.removeEventListener) {
 			obj.removeEventListener(type, fun, false);
 		} else if (obj.detachEvent) {
@@ -32,12 +32,12 @@ var myEvent = {
 			obj['on' + type] = null;
 		}
 	},
-	
+
 	/**
-	 * 阻止事件(包括冒泡和默认行为)
-	 * @param {Object} event对象
+	 * stop event ( include preventDefault and stopPropagation)
+	 * @param {Object} event object
 	 */
-	stopEvent : function (e) {
+	stopEvent: function (e) {
 		e = e || window.event;
 		if (e.preventDefault) {
 			e.preventDefault();
@@ -47,25 +47,25 @@ var myEvent = {
 			e.cancelBubble = true;
 		}
 	},
-	
+
 	/**
-	 * 仅阻止事件冒泡
-	 * @param {Object} event对象
+	 * stop propagation
+	 * @param {Object} event object
 	 */
-	stopPropagation : function (e) {
+	stopPropagation: function (e) {
 		e = e || window.event;
-		if (! + "\v1") {
+		if (!+"\v1") {
 			e.cancelBubble = true;
 		} else {
 			e.stopPropagation();
 		}
 	},
-	
+
 	/**
-	 * 仅阻止浏览器默认行为
-	 * @param {Object} event对象
+	 * prevent default
+	 * @param {Object} event object
 	 */
-	preventDefault : function (e) {
+	preventDefault: function (e) {
 		e = e || window.event;
 		if (e.preventDefault) {
 			e.preventDefault();
@@ -73,12 +73,12 @@ var myEvent = {
 			e.returnValue = false;
 		}
 	},
-	
+
 	/**
-	 * 取得事件源对象
-	 * @param {Object} event源对象
+	 * get event target
+	 * @param {Object} event object
 	 */
-	getEventTarget : function (e) {
+	getEventTarget: function (e) {
 		e = e || window.event;
 		var target = event.srcElement ? event.srcElement : event.target;
 		return target;
