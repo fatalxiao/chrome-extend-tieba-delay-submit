@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+		<link rel="stylesheet" type="text/css" href="../font-awesome/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="option.css"/>
+		<link rel="stylesheet" type="text/css" href="about.css"/>
+
+	</head>
+	<body>
+
+		<div id="main">
+			<div id="optionList">
+				<div id="optionListHeader">
+					详细设置
+				</div>
+				<div id="optionListItemDelaySend" class="optionListItem">
+					贴吧延迟发送
+				</div>
+				<div id="optionListItemAutoOpenUrl" class="optionListItem">
+					启动打开网页
+				</div>
+				<div class="separator"></div>
+				<div id="optionListItemAbout" class="optionListItem">
+					关于
+				</div>
+			</div>
+			<div id="optionContent">
+				<div id="optionContentHeader"></div>
+
+				<!-- 延迟发送 -->
+				<div id="optionContentDelaySend" class="optionContent">
+					<div class="optionContentBlock">
+						<div class="optionContentBlockTitle">
+							功能开关
+						</div>
+						<div id="switchDelaySend" class="switch switchDisable">
+							<div class="switchBtn"></div>
+						</div>
+					</div>
+					<div class="contentSeparator"></div>
+					<div class="optionContentBlock">
+						<div class="optionContentBlockTitle">
+							延迟发送时间
+						</div>
+						<div id="delaySendSecond" class="numberField">
+							<i class="fa fa-chevron-up numberFieldBtnUp" aria-hidden="true"></i>
+							<input type="text" class="numberFieldText" value="0"/>
+							<i class="fa fa-chevron-down numberFieldBtnDown" aria-hidden="true"></i>
+						</div>
+						<div class="optionContentBlockText">
+							秒
+						</div>
+					</div>
+				</div>
+
+				<!-- 开启自动打开网页 -->
+				<div id="optionContentAutoOpenUrl" class="optionContent">
+					<div class="optionContentBlock">
+						<div class="optionContentBlockTitle">
+							功能开关
+						</div>
+						<div id="switchAutoOpenUrl" class="switch switchDisable">
+							<div class="switchBtn"></div>
+						</div>
+					</div>
+					<div class="contentSeparator"></div>
+					<div class="optionContentBlock">
+						<div class="optionContentBlockTitle">
+							网址
+						</div>
+						<input id="textAutoOpenUrl" type="text" class="urlField" value=""/>
+						<div id="btnAddAutoOpenUrl" class="btnAdd">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div id="gridUrl" class="gridUrl">
+
+					</div>
+				</div>
+
+				<!-- 关于 -->
+				<div id="optionContentAbout" class="optionContent">
+					<div id="aboutLogo"></div>
+					<div id="aboutLogoName">
+						Chrome 工具
+					</div>
+					<div id="aboutVersion">
+						version : 1.0 alpha
+					</div>
+					<div class="contentSeparatorAbout"></div>
+					<div id="aboutContact">
+						<div id="aboutContactHeader">
+							联系方式
+							<br/>
+							E-mail: liangxiaojun722@163.com
+						</div>
+						<div id="aboutContactItems">
+							<div class="aboutContactItem">
+								<a class="aboutContactItemImg" href="http://tieba.baidu.com/home/main?un=fatalxiao&fr=home">
+									<img class="aboutContactItemImgGray" alt="" src="../images/baiduGray.png"/>
+									<img class="aboutContactItemImgColor" alt="" src="../images/baidu.png"/>
+								</a>
+								<div class="aboutContactItemTitle">百度</div>
+							</div>
+							<div class="aboutContactItem">
+								<a class="aboutContactItemImg" href="http://weibo.com/fatalxiao">
+									<img class="aboutContactItemImgGray" alt="" src="../images/weiboGray.png"/>
+									<img class="aboutContactItemImgColor" alt="" src="../images/weibo.png"/>
+								</a>
+								<div class="aboutContactItemTitle">微博</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script type="text/javascript" src="../jquery/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../common/common.js"></script>
+		<script type="text/javascript" src="../common/myEvent.js"></script>
+		<script type="text/javascript" src="../common/switch.js"></script>
+		<script type="text/javascript" src="../common/numberField.js"></script>
+		<script type="text/javascript" src="../common/gridUrl.js"></script>
+		<script type="text/javascript" src="about.js"></script>
+		<script type="text/javascript" src="delaySend.js"></script>
+		<script type="text/javascript" src="autoOpenUrl.js"></script>
+		<script type="text/javascript" src="option.js"></script>
+
+	</body>
+</html>

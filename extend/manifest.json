@@ -1,0 +1,63 @@
+{
+	"name": "Chrome \u5de5\u5177",
+	"version": "1.1",
+	"description": "Chrome \u5de5\u5177",
+	"icons": {
+		"128": "icons/icon128.png",
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png"
+	},
+	"manifest_version": 2,
+	"background": {
+		"scripts": [
+			"jquery/jquery-1.10.2.js",
+			"common/common.js",
+			"common/myEvent.js",
+			"background/storage.js",
+			"background/background.js"
+		]
+	},
+	"browser_action": {
+		"default_icon": {
+			"19": "icons/icon19.png",
+			"38": "icons/icon38.png"
+		},
+		"default_popup": "popup/popup.html",
+		"default_title": "popup"
+	},
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"js": [
+				"jquery/jquery-1.10.2.js",
+				"common/common.js",
+				"common/myEvent.js",
+				"content_scripts/bindSubmit.js",
+				"content_scripts/bindReply.js",
+				"content_scripts/main.js"
+			],
+			"css": [
+				"content_scripts/bindSubmit.css",
+				"content_scripts/bindReply.css"
+			],
+			"matches": [
+				"*://tieba.baidu.com/*"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"options_page": "option/option.html",
+	"permissions": [
+		"*://tieba.baidu.com/*",
+		"contextMenus",
+		"tabs",
+		"idle",
+		"webRequest",
+		"webRequestBlocking",
+		"webNavigation"
+	],
+	"web_accessible_resources": [
+		"content_scripts/bindSubmit.css",
+		"content_scripts/bindReply.css"
+	]
+}

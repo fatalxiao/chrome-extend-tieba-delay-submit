@@ -1,0 +1,315 @@
+/* 主色：#87CA23*/
+
+/* 滚动条 */
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+::-webkit-scrollbar-track-piece {
+	background-color: #eee;
+	-webkit-border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:vertical {
+	height: 8px;
+	background-color: #aaa;
+	-webkit-border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+	width: 8px;
+	background-color: #aaa;
+	-webkit-border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+	background-color: #ccc;
+}
+::-webkit-scrollbar-thumb:horizontal:hover {
+	background-color: #ccc;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+	background-color: #aaa;
+}
+::-webkit-scrollbar-thumb:horizontal:active {
+	background-color: #aaa;
+}
+body {
+	background: url(../images/optionBg.png) no-repeat fixed top;
+	font-family: "微软雅黑", "宋体", "Arial";
+}
+#main {
+	width: 800px;
+	height: 600px;
+	margin: 80px auto 0;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+.separator {
+	width: 180px;
+	height: 0px;
+	margin: 4px auto;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#optionList {
+	float: left;
+	width: 200px;
+	height: 600px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	background: url(../images/optionListBg.png) repeat;
+}
+#optionListHeader {
+	height: 30px;
+	line-height: 30px;
+	padding: 8px 0 8px 14px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	border-top-left-radius: 4px;
+	background: url(../images/optionListBg.png) repeat;
+}
+.optionListItem {
+	width: 180px;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	padding-left: 24px;
+	position: relative;
+	left: -2px;
+	font-size: 13px;
+	cursor: pointer;
+	margin-top: 4px;
+}
+.optionListItem:hover {
+	background-color: #87CA23;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+.optionListItemActive {
+	width: 178px;
+	height: 40px;
+	line-height: 40px;
+	color: #87CA23;
+	padding-left: 22px;
+	font-size: 13px;
+	margin-top: 4px;
+	background: url(../images/optionListBg.png) repeat; /* #484e40 */
+}
+#optionContent {
+	float: right;
+	width: 600px;
+	height: 600px;
+	background: url(../images/optionContentBg.png) repeat; /* #fff */
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	/*box-shadow : 0 1px 2px rgba(0,0,0,0.3);
+	box-shadow : -1px 0 2px rgba(0, 0, 0, 0.3);*/
+}
+.optionContent {
+	display: none;
+	text-align: center;
+	color: #777;
+	font-size: 14px;
+}
+#optionContentHeader {
+	height: 46px;
+	line-height: 46px;
+	color: #87CA23;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+	border-top-right-radius: 4px;
+	background: rgba(77, 83, 74, .8);
+}
+.optionContentBlock {
+	width: 560px;
+	text-align: left;
+	padding: 6px 20px;
+	float: left;
+}
+.contentSeparator {
+	float: left;
+	width: 580px;
+	height: 0px;
+	margin: 0 10px;
+	border-top: 1px solid #ddd;
+}
+.optionContentBlockTitle {
+	float: left;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+}
+.optionContentBlockText {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	margin-left: 10px;
+}
+.switch {
+	float: left;
+	width: 44px;
+	height: 24px;
+	border-radius: 12px;
+	box-sizing: border-box;
+	background: #fff;
+	cursor: pointer;
+	margin: 13px;
+	position: relative;
+	transition: all 250ms ease-in-out;
+}
+.switch.switchEnable {
+	background: #87CA23;
+}
+.switch.switchDisable {
+	background: #E9E9E9;
+}
+.switch .switchBtn {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: #fff;
+	position: absolute;
+	top: 2px;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+	transition: all 250ms ease-in-out;
+}
+.switch.switchEnable .switchBtn {
+	left: 22px;
+}
+.switch.switchDisable .switchBtn {
+	left: 2px;
+}
+.numberField {
+	float: left;
+	width: 64px;
+	height: 50px;
+	margin-left: 13px;
+}
+.numberFieldText {
+	float: left;
+	width: 60px;
+	height: 24px;
+	line-height: 22px;
+	outline: 0;
+	border: 1px solid #ddd;
+	border-radius: 12px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.numberFieldBtnUp {
+	float: left;
+	width: 20px;
+	margin: 0 20px;
+	height: 13px;
+	line-height: 13px;
+	text-align: center;
+	cursor: pointer;
+	color: #aaa;
+	transition: all 250ms ease-in-out;
+}
+.numberFieldBtnUp:hover {
+	color: #bbb;
+}
+.numberFieldBtnDown {
+	float: left;
+	width: 20px;
+	margin: 0 20px;
+	height: 13px;
+	line-height: 13px;
+	text-align: center;
+	cursor: pointer;
+	color: #aaa;
+	transition: all 250ms ease-in-out;
+}
+.numberFieldBtnDown:hover {
+	color: #bbb;
+}
+.urlField {
+	float: left;
+	width: 378px;
+	height: 28px;
+	padding: 4px 8px;
+	outline: 0;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin: 12px 0 12px 13px;
+	box-sizing: border-box;
+}
+.urlFieldError {
+	border: 1px solid #FFACAC;
+	background-color: #FFE0E0;
+}
+.btnAdd {
+	float: left;
+	width: 62px;
+	height: 28px;
+	background: #87CA23;
+	border-radius: 2px;
+	margin: 12px 0 0 5px;
+	cursor: pointer;
+	transition: all 250ms ease-in-out;
+}
+.btnAdd:hover {
+	background: #91D131;
+}
+.btnAdd i {
+	width: 62px;
+	height: 28px;
+	color: #fff;
+	text-align: center;
+	line-height: 28px;
+}
+.gridUrl {
+	float: left;
+	width: 435px;
+	height: 398px;
+	margin-left: 133px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 4px;
+	overflow-y: auto;
+}
+.gridUrlRow {
+	float: left;
+	width: 423px;
+	height: 30px;
+	padding-left: 8px;
+	border-bottom: 1px solid #eee;
+}
+.gridUrlRowFirst {
+	border-top: 1px solid #eee;
+}
+.gridUrlRowOdd {
+	background-color: #fff;
+}
+.gridUrlRowEven {
+	background-color: #f6f6f6;
+}
+.gridUrlCell {
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.gridUrlCellUrl {
+	width: 393px;
+}
+.gridUrlCellDel {
+	width: 30px;
+}
+.gridUrlCellDelBtn {
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	display: none;
+	text-align: center;
+	line-height: 30px;
+	font-size: 18px;
+	color: #FF4545;
+}
+.gridUrlRow:hover .gridUrlCellDel .gridUrlCellDelBtn {
+	display: block;
+}
