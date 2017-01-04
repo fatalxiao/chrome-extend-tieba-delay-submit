@@ -1,7 +1,7 @@
 {
 	"name": "Tieba Delay Submit",
 	"version": "1.0",
-	"description": "Tieba Delay Submit",
+	"description": "A Chrome extend to delay submit for tieba.",
 	"icons": {
 		"128": "icons/icon128.png",
 		"16": "icons/icon16.png",
